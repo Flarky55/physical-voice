@@ -80,6 +80,11 @@ local function TakeVoicePhysicsDamage(ent, volume, attacker)
         if not phys:IsMotionEnabled() and volume >= CVAR_UNFREEZE_VOLUME:GetFloat() then
             phys:EnableMotion(true)
         end
+
+        -- Looks like `:TakeDamageInfo` not applying force on SENTs
+        if ent:IsScripted() then
+            phys:ApplyForceCenter(force)
+        end
     end
 
     local dmgInfo = DamageInfo()
