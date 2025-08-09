@@ -1,5 +1,6 @@
 local Clamp = math.Clamp
 
+
 local callback_value = function(func)
     return function(_, _, value) func(value) end
 end
@@ -15,7 +16,7 @@ local CVAR_FORCE_PLAYER         = CreateConVar("pv_force_player", 0.05, nil, "Pe
 local CVAR_FORCE_DIRECTION_UP   = CreateConVar("pv_force_direction_up", 0.3, nil, "Percentage of upward force direction added to player's voice direction", 0.0, 1.0)
 
 local CVAR_DAMAGE           = CreateConVar("pv_damage", 100, nil, "Default damage value")
-local CVAR_UNFREEZE_VOLUME  = CreateConVar("pv_unfreeze_volume", 0.5, nil, "Minimum required volume to unfreeze entity", 0.0, 1.0)
+local CVAR_UNFREEZE_VOLUME  = CreateConVar("pv_unfreeze_volume", 0.5, nil, "Minimum volume required to unfreeze entity", 0.0, 1.0)
 
 local DISTANCE, DISTANCE_SQUARED
 do
@@ -43,6 +44,7 @@ do
 
     setup(CVAR_SEARCH_ANGLE:GetInt())
 end
+
 
 util.AddNetworkString("PhysicalVoice")
 
