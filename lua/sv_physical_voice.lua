@@ -21,6 +21,8 @@ local CVAR_UNFREEZE_VOLUME  = CreateConVar("pv_unfreeze_volume", 0.5, nil, "Mini
 local DISTANCE, DISTANCE_SQUARED
 do
     local setup = function(value)
+        value = tonumber(value)
+
         DISTANCE            = value
         DISTANCE_SQUARED    = value^2
     end
@@ -33,6 +35,8 @@ end
 local USE_SPHERE_SEARCH, CONE_ANGLE_COS
 do
     local setup = function(value)
+        value = tonumber(value)
+
         USE_SPHERE_SEARCH = value == 0
 
         if not USE_SPHERE_SEARCH then
